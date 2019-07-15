@@ -4,7 +4,51 @@
     <title></title>
 </head>
 <body>
+
+    <div class = "main">
+        <h1>I love Pixels</h1>
+        <p>Lastest Images</p>
+        <ul v-if='images.length > 0'>
+            <div v-for ='images in images'>
+                <img :src='images.url'/>
+                {{images.title}}
+            </div>
+        </ul>
+        <p v-else> No Images!!!</p>
+
+
+    </div>
+
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
+
+
+<!-- <!doctype html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div class = "main">
+        <h1>Welcome, {{name}}</h1>
+        <p>{{userInfo.favoriteFood}}</p>
+
+        <ul v-if='cities.length > 0'>
+            <li v-for='city in cities'>
+                {{city.name}}, {{city.country}}
+            </li>
+        </ul>
+        <p v-else> No cities!!!</p>
+
+
+    </div>
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html> -->
