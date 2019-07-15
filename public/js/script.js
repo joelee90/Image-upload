@@ -14,4 +14,10 @@
             });
         } //close mounted
     });
+    new Vue({
+        el: '#main',
+        data: {
+            greetee: ''
+        }
+    });
 })();

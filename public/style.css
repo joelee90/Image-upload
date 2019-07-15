@@ -1,6 +1,8 @@
 * {
     font-family: 'Source Code Pro', monospace;
     box-sizing: border-box;
+    background: #F3E4D5;
+    color:  #7C9581;
 }
 
 h1 {
@@ -20,7 +22,7 @@ h1 {
 }
 
 .block {
-    border: 1px solid black;
+    border: 3px solid #ABAF9A;
     border-radius: 10px;
     padding: 5px;
     margin: 5px;
@@ -36,4 +38,19 @@ h1 {
 .text {
     font-size: 20px;
     padding: 5px;
+}
+
+.input {
+    font-size: 30px;
+}
+
+.search {
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    padding: 0;
+    font-size: 20px;
 }

@@ -9,7 +9,11 @@
 
 <header>
     <h1>I <img src ='/pixel-heart.png' width = '100px;'/>  Pixels</h1>
-    <h4 class = 'subtitle'>Lastest Images</h4>
+    <div id="main">
+    <p class = 'search'>Pixel, <span>{{greetee || 'Find me ...'}}</p>
+    <input class = 'input' type="text" v-model="greetee">
+    </div>
+    <h3 class = 'subtitle'>Lastest Images</h3>
 </header>
 
 <body>
