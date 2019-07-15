@@ -1,22 +1,25 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600&display=swap" rel="stylesheet">
     <title></title>
 </head>
+
+<header>
+    <h1>I love Pixels</h1>
+    <p class = 'subtitle'>Lastest Images</p>
+</header>
+
 <body>
-
     <div class = "main">
-        <h1>I love Pixels</h1>
-        <p>Lastest Images</p>
-        <ul v-if='images.length > 0'>
-            <div v-for ='images in images'>
+        <div class = 'main_2' v-if='images.length > 0'>
+            <div class = "block" v-for ='images in images'>
                 <img :src='images.url'/>
-                {{images.title}}
+                <div class = 'text'>{{images.title}}</div>
             </div>
-        </ul>
+        </div>
         <p v-else> No Images!!!</p>
-
-
     </div>
 
     <script src="/js/vue.js"></script>
