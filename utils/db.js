@@ -8,5 +8,17 @@ if(process.env.DATABASE_URL) {
 }
 
 exports.getImages = function getImages() {
-    return db.query('SELECT * FROM images');
+    return db.query('SELECT * FROM images ORDER BY id DESC LIMIT 30');
+};
+
+// exports.getImagesOn = () => {
+//     return db.query('SELECT * FROM images').then(({ rows }) => rows);
+// };
+
+exports.addImages = function addImages(
+    url, username, title, description
+) {
+    return db.query(`INSERT INTO images (url, username, title, description)
+        VALUES ('${url}', '${username}', '${username}', '${description}')
+        RETURNING *`);
 };

@@ -54,3 +54,23 @@ h3 {
     padding: 0;
     font-size: 20px;
 }
+
+
+/* .grid-container {
+    display: flex;
+    justify-content: center;
+}
+.images-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    max-width: 70vw;
+    border: 2px solid black;
+    grid-gap: 1em;
+    /* grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ."; */
+}
+
+/* .image img {
+    max-width: 20vw;
+    max-height: 20vw;
+} */ */
