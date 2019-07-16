@@ -35,8 +35,7 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
     let title = req.body.title;
     let description = req.body.description;
     const url = config.s3Url + req.file.filename;
-    console.log(url);
-
+    // console.log(url);
 
     db.addImages(
         url,
@@ -45,7 +44,7 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
         description
     ).then(val => {
         res.json(val.rows[0]);
-        console.log(val);
+        // console.log(val);
     });
 });
 

@@ -31,11 +31,11 @@
                 formData.append('file', this.file);
 
                 let self = this;
-
                 axios.post('/upload', formData)
                     .then(function(resp) {
+                        console.log("resp:", resp);
                         self.images.unshift(resp.data);
-                        console.log('resp in POST/upload:',resp);
+                        // console.log('resp in POST/upload:',resp);
                     })
                     .catch(function(err) {
                         console.log('err in POST/upload:',err);
@@ -43,6 +43,8 @@
             },
             handleChange: function(e) {
                 this.file = e.target.files[0];
+                // console.log("this.file", this.file);
+                //file which I decide to upload
             }
         }
     });

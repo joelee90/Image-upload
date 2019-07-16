@@ -41,4 +41,23 @@ gitignore ->
 
   ------
 
-  
+  Imageboard Part 2
+
+  - gitignore = secrets.json
+
+  - create secrets.json where AWS_KEY, AWS_SECRET is stored.
+  - config.json add s3url and name of bucket.
+
+  <db.js>
+
+  - create a function which will add images to the db. 
+
+  <script.js (vue)>
+
+  There are two event handlers, and when the user clicks on upload button, want to upload the data(request) to the server.
+
+  In methods, handleclick, console.log(formData) - will have the information that I need to upload. 
+
+  <index.js>
+
+  Add s3, config, multer, hid-safe
