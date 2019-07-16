@@ -1,8 +1,9 @@
 * {
     font-family: 'Source Code Pro', monospace;
     box-sizing: border-box;
-    background: #F3E4D5;
-    color:  #7C9581;
+    background: #0A0C0E;
+    color:  #F4A336;
+    padding: 5px;
 }
 
 h1 {
@@ -13,7 +14,8 @@ h1 {
     font-size: 40px;
 }
 
-.main{}
+.main{
+}
 
 .main_2 {
     grid-column-gap: 30px;
@@ -22,22 +24,26 @@ h1 {
 }
 
 .block {
-    border: 3px solid #ABAF9A;
-    border-radius: 10px;
+    border: 5px solid #4D5D5E;
+    border-radius: 30px;
     padding: 5px;
     margin: 5px;
+    width: 30vw;
 }
 
 .block img {
-   width: 30vw;
+   width: 29vw;
    height: 20vw;
    object-fit: cover;
-   border-radius: 10px;
+   border-radius: 30px;
 }
 
 .text {
     font-size: 20px;
     padding: 5px;
+    border-radius: 70px;
+    width: 20;
+    background: none;
 }
 
 .input {
