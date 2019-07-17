@@ -42,33 +42,24 @@
                 <img class="modal-image":src="url" alt="description" />
                 <p>{{description}}</p>
                 <h4>{{username}}{{date}}</h4>
+
+                <div class="comment">
+                    <form>
+                        <h2>Add a comment!</h2>
+                        <input v-model='comment' name='comment' placeholder="comment" type='text' />
+                        <input v-model='username' name='username' placeholder="username" type='text' />
+                        <button class="add-comment">Add Comment</button>
+                    </form>
+                    <!-- <div class='comment2' v-if='comments.length > 0'>
+                        <div class="commentbox" v-for ='comments in comments'>
+                            <div class='text'>{{comments.comment}} </br> {{comments.username}}</div>
+                        </div>
+                    </div> -->
+                </div>
+
             </div>
         </transition>
     </script>
-
-
-
-    <!-- <script type="text/x-template" id='love-template'>
-        <h2 @click='clicked'>
-            I love<strong>{{something}}</strong>
-            <span v-if="whatever" @click.stop="clicked2">
-                and <strong>{{whatever}}</strong>
-            </span>
-            !!!
-        </h2>
-    </script> -->
-
-    <!-- <love-component v-bind:whatever='favoriteThing'></love-component>
-    <div>
-        <input v-model='favoriteThing'>
-    </div>
-    <love-component
-        v-if="showSecondLoveComponent"
-        :whatever='favoriteThing'
-        @change="change"
-    ></love-component> -->
-    <!-- encounter -->
-
 
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>

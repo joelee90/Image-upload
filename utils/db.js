@@ -11,10 +11,6 @@ exports.getImages = function getImages() {
     return db.query('SELECT * FROM images ORDER BY created_at DESC LIMIT 30');
 };
 
-// exports.getImagesOn = () => {
-//     return db.query('SELECT * FROM images').then(({ rows }) => rows);
-// };
-
 exports.addImages = function addImages(
     url, username, title, description
 ) {

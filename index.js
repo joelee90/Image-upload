@@ -68,5 +68,4 @@ app.get("/getData/:showmodal", (req, res) => {
 });
 
 
-
 app.listen(8080, () => console.log('Vue is here!!!😜'));
