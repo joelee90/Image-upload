@@ -61,3 +61,50 @@ gitignore ->
   <index.js>
 
   Add s3, config, multer, hid-safe
+  
+  --------------
+  
+  Imageboard part 3
+
+Vue component
+
+define global or vue instance
+
+add deleting from yesterday exercise
+
+parent chooses to decide to response
+
+- [ ] comment - create table
+  - comment, username, timestamp, id-column
+  - component, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

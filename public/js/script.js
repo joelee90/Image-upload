@@ -6,7 +6,10 @@
             title: '',
             description: '',
             username: '',
-            file: null
+            file: null,
+
+            showSecondLoveComponent: false,
+            favoriteThing: 'Peanut Butter'
 
         }, //closing data
         mounted: function() {
@@ -20,7 +23,7 @@
         }, //close mounted
 
         methods: {
-            handleClick: function(e) {
+            handleClick: function() {
                 // e.preventDefault();
                 // console.log('this!:', this);
                 var formData = new FormData();
@@ -45,7 +48,14 @@
                 this.file = e.target.files[0];
                 // console.log("this.file", this.file);
                 //file which I decide to upload
+            },
+            clicked: function() {
+                this.showSecondLoveComponent = true;
+            },
+            change: function(newFaveThing) {
+                this.favoriteThing = newFaveThing;
             }
+
         }
     });
 
