@@ -7,7 +7,7 @@
             description: '',
             username: '',
             file: null,
-            showModal: false
+            showmodal: false
         }, //closing data
         mounted: function() {
             let self = this;
@@ -47,10 +47,10 @@
                 //file which I decide to upload
             },
             clicked: function(id) {
-                this.showModal = true;
-                this.showModal = id;
+                this.showmodal = true;
+                this.showmodal = id;
                 console.log('clicked');
-                console.log("this.showModal ", this.showModal);
+                console.log("this.showmodal ", this.showmodal);
             }
         }
     });

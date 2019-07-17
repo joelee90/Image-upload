@@ -64,14 +64,16 @@ h3 {
 .show-container {
   position: fixed;
   z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  background-color: white;
   transition: opacity .3s ease;
+  text-align: center;
+  opacity: 0.98;
 }
+
 
 .modal-enter {
     opacity: 0;
@@ -89,6 +91,10 @@ h3 {
 
 .modal-button {
   float: right;
+}
+
+.modal-image {
+    height: 40%;
 }
 /* .grid-container {
     display: flex;

@@ -29,20 +29,19 @@
             </div>
         </div>
         <p v-else> No Images!!!</p>
-
         <div>
-           <modal v-if="showModal" :id="showModal" @close="showModal=false"></modal>
+           <modal v-if="showmodal" :showmodal="showmodal" @close="showmodal=false"></modal>
        </div>
     </div>
 
     <script type="text/x-template" id='modal-template'>
         <transition name="modal">
             <div class="show-container">
-                <div class="show-image">
-                    This is where Image is displayed.
-
-                </div>
                 <button class="modal-button" @click="$emit('close')">Close</button>
+                <h3>{{title}}</h3>
+                <img class="modal-image":src="url" alt="description" />
+                <p>{{description}}</p>
+                <h4>{{username}}{{date}}</h4>
             </div>
         </transition>
     </script>

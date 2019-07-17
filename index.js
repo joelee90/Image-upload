@@ -56,8 +56,8 @@ app.get('/images', function(req, res) {
         });
 });
 
-app.get("/getData/:id", (req, res) => {
-    db.showImage(req.params.id)
+app.get("/getData/:showmodal", (req, res) => {
+    db.showImage(req.params.showmodal)
         .then(data => {
             res.json(data.rows);
             console.log("data", data.rows);
