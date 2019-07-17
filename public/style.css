@@ -1,7 +1,7 @@
 * {
     font-family: 'Source Code Pro', monospace;
     box-sizing: border-box;
-    background: #0A0C0E;
+    background: white;
     color:  #F4A336;
     padding: 5px;
 }
@@ -61,7 +61,35 @@ h3 {
     font-size: 20px;
 }
 
+.show-container {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity .3s ease;
+}
 
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-leave-active {
+    opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.modal-button {
+  float: right;
+}
 /* .grid-container {
     display: flex;
     justify-content: center;
@@ -74,9 +102,9 @@ h3 {
     border: 2px solid black;
     grid-gap: 1em;
     /* grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ."; */
-}
+/* } */
 
 /* .image img {
     max-width: 20vw;
     max-height: 20vw;
-} */ */
+} */

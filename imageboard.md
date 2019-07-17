@@ -78,7 +78,11 @@ parent chooses to decide to response
   - comment, username, timestamp, id-column
   - component, 
 
+---------
 
+- [ ] create a script 
+- [ ] create vue.component
+- [ ] add events in script.js
 
 
 

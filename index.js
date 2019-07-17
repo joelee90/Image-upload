@@ -56,6 +56,17 @@ app.get('/images', function(req, res) {
         });
 });
 
+app.get("/getData/:id", (req, res) => {
+    db.showImage(req.params.id)
+        .then(data => {
+            res.json(data.rows);
+            console.log("data", data.rows);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
 
 
 app.listen(8080, () => console.log('Vue is here!!!😜'));

@@ -8,7 +8,7 @@ if(process.env.DATABASE_URL) {
 }
 
 exports.getImages = function getImages() {
-    return db.query('SELECT * FROM images ORDER BY id DESC LIMIT 30');
+    return db.query('SELECT * FROM images ORDER BY created_at DESC LIMIT 30');
 };
 
 // exports.getImagesOn = () => {
@@ -21,4 +21,8 @@ exports.addImages = function addImages(
     return db.query(`INSERT INTO images (url, username, title, description)
         VALUES ('${url}', '${username}', '${username}', '${description}')
         RETURNING *`);
+};
+
+exports.showImage = function showImage(id) {
+    return db.query(`SELECT * FROM images WHERE id=$1`, [id]);
 };

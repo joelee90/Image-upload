@@ -9,26 +9,12 @@
 
 <header>
     <h1>I <img src ='/pixel-heart.png' width = '100px;'/>  Pixels</h1>
-    <div id="main">
-    <p class = 'search'>Pixel, <span>{{greetee || 'Find me ...'}}</p>
-    <input class = 'input' type="text" v-model="greetee">
-    </div>
     <h3 class = 'subtitle'>Lastest Images</h3>
 </header>
 
 <body>
 
     <div class = "main">
-        <love-component v-bind:whatever='favoriteThing'></love-component>
-        <div>
-            <input v-model='favoriteThing'>
-        </div>
-        <love-component
-            v-if="showSecondLoveComponent"
-            :whatever='favoriteThing'
-            @change="change"
-        ></love-component>
-        <!-- encounter -->
         <form>
             <input v-model='title' name='title' placeholder="title" type='text' />
             <input v-model='description' name='description' placeholder="description" type='text' />
@@ -37,16 +23,33 @@
             <button @click.prevent.default='handleClick'>upload</button>
         </form>
         <div class='main_2' v-if='images.length > 0'>
-            <div class = "block" v-for ='images in images'>
-                <img :src='images.url'/>
-                <div class = 'text'>{{images.title}}</div>
+            <div class="block" v-for ='images in images'>
+                <img :src='images.url' alt="image" @click="clicked(images.id)">
+                <div class='text'>{{images.title}}</div>
             </div>
         </div>
         <p v-else> No Images!!!</p>
 
+        <div>
+           <modal v-if="showModal" :id="showModal" @close="showModal=false"></modal>
+       </div>
     </div>
 
-    <script type="text/x-template" id='love-template'>
+    <script type="text/x-template" id='modal-template'>
+        <transition name="modal">
+            <div class="show-container">
+                <div class="show-image">
+                    This is where Image is displayed.
+
+                </div>
+                <button class="modal-button" @click="$emit('close')">Close</button>
+            </div>
+        </transition>
+    </script>
+
+
+
+    <!-- <script type="text/x-template" id='love-template'>
         <h2 @click='clicked'>
             I love<strong>{{something}}</strong>
             <span v-if="whatever" @click.stop="clicked2">
@@ -54,7 +57,19 @@
             </span>
             !!!
         </h2>
-    </script>
+    </script> -->
+
+    <!-- <love-component v-bind:whatever='favoriteThing'></love-component>
+    <div>
+        <input v-model='favoriteThing'>
+    </div>
+    <love-component
+        v-if="showSecondLoveComponent"
+        :whatever='favoriteThing'
+        @change="change"
+    ></love-component> -->
+    <!-- encounter -->
+
 
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>

@@ -7,10 +7,7 @@
             description: '',
             username: '',
             file: null,
-
-            showSecondLoveComponent: false,
-            favoriteThing: 'Peanut Butter'
-
+            showModal: false
         }, //closing data
         mounted: function() {
             let self = this;
@@ -49,20 +46,12 @@
                 // console.log("this.file", this.file);
                 //file which I decide to upload
             },
-            clicked: function() {
-                this.showSecondLoveComponent = true;
-            },
-            change: function(newFaveThing) {
-                this.favoriteThing = newFaveThing;
+            clicked: function(id) {
+                this.showModal = true;
+                this.showModal = id;
+                console.log('clicked');
+                console.log("this.showModal ", this.showModal);
             }
-
-        }
-    });
-
-    new Vue({
-        el: '#main',
-        data: {
-            greetee: ''
         }
     });
 
