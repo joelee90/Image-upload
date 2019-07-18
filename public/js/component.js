@@ -13,7 +13,8 @@ Vue.component("modal", {
             image_id: "",
             user_name: "",
             comment: "",
-            created_at: ""
+            created_at: "",
+            comments: []
         };
     },
     props: ["showmodal"],
@@ -34,6 +35,16 @@ Vue.component("modal", {
             .catch(function(err) {
                 console.log("err in GET/", err);
             });
+
+        axios
+            .get("/comment/" + self.showmodal)
+            .then(function(resp) {
+                self.comments = resp.data.rows;
+            })
+            .catch(function(err) {
+                console.log("err in axios get/comment", err);
+            });
+
     },
     methods: {
         clicked2: function() {
@@ -47,20 +58,11 @@ Vue.component("modal", {
                 })
                 .then(results => {
                     console.log("results clicked2", results);
-                    // this.comments.unshift(resp.data.rows[0]);
+                    this.comments.unshift(results.data);
                 })
                 .catch(function(err) {
                     console.log("err in axios post/comment", err);
                 });
-
-            // axios
-            //     .get("/comment/" + self.showmodal)
-            //     .then(function(resp) {
-            //         self.comments = resp.data;
-            //     })
-            //     .catch(function(err) {
-            //         console.log("err in axios get/comment", err);
-            //     });
         }
     }
 });

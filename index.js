@@ -79,14 +79,14 @@ app.post("/comment/:showmodal", (req, res) => {
         });
 });
 
-// app.get("/comment/:showmodal", (req,res) => {
-//     return db.showComments(req.params.showmodal)
-//         .then(data => {
-//             res.json(data.rows);
-//         })
-//         .catch(err => {
-//             console.log("err in app get /comment", err);
-//         });
-// });
+app.get("/comment/:showmodal", (req,res) => {
+    return db.showComments(req.params.showmodal)
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            console.log("err in app get /comment", err);
+        });
+});
 
 app.listen(8080, () => console.log('Vue is here!!!😜'));

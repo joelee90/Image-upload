@@ -24,7 +24,7 @@ h1 {
 }
 
 .block {
-    border: 5px solid #4D5D5E;
+    border: 2px solid #F4A336;
     border-radius: 30px;
     padding: 5px;
     margin: 5px;
@@ -64,10 +64,10 @@ h3 {
 .show-container {
   position: fixed;
   z-index: 9998;
-  top: 15%;
+  top: 0%;
   left: 15%;
   width: 70%;
-  height: 70%;
+  height: 100vh;
   background-color: white;
   transition: opacity .3s ease;
   text-align: center;
@@ -95,6 +95,16 @@ h3 {
 
 .modal-image {
     height: 40%;
+}
+
+.addcomment {
+    overflow: scroll;
+}
+
+.comment-section {
+    border: 1px solid #F4A336;
+    font-size: 15px;
+    height: 80px;
 }
 /* .grid-container {
     display: flex;

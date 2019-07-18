@@ -243,7 +243,8 @@ check if url is valid, close the modal where id doen't exist.
 
 ---
 
-
+- [ ] comments don't show immediately!
+- [ ] css
 
 
 

@@ -30,5 +30,6 @@ exports.addComments = function addComments(image_id, user_name, comment) {
 };
 
 exports.showComments = function showComments(id) {
-    return db.query('SELECT * FROM comments WHERE image_id=$1 ORDER BY created_at DESC'), [id];
+    return db.query(
+        `SELECT * FROM comments WHERE image_id=$1 ORDER BY created_at DESC`, [id]);
 };
