@@ -165,15 +165,81 @@ parent chooses to decide to response
           app.use(
               require('body-parser').json()
           ); instead of urlencoded
-      
+          
           make modal go away ->
           trigger emits event for the modal to hide.
 
+SELECT * FROM images
+
+WHERE id < $1
+
+ORDER BY id DESC
+
+LIMIT 20
 
 
 
+know the id of the last image in db, check to see if the results has the id, suppress the 'more' button.
 
+SELECT if FROM images
 
+ORDER BY if ASC
+
+LIMIT 1
+
+value of last image id can change. 
+
+—combine—(sub query)
+
+SELECT * , (
+
+​	SELECT if FROM images
+
+​	ORDER BY if ASC
+
+​	LIMIT 1
+
+)
+
+AS "lowestId" FROM images
+
+WHERE id < $1
+
+ORDER BY id DESC
+
+LIMIT 20
+
+TABLES:
+
+<comments>
+
+ id | image_id | username | comment | created_at 
+
+<images>
+
+ id | url|   username   | title  |  description   |   created_at         
+
+click(add comment) —> save it in db (specifically to the id of the image ?)
+
+-----
+
+Part 4
+
+Client side routing.
+
+location.hash
+
+location.hash.slice(1)
+
+<script.js>
+
+images: location.hash.slice(1),
+
+<html>
+
+<a :href="'#' + image.id">
+
+check if url is valid, close the modal where id doen't exist. 
 
 
 

@@ -9,7 +9,11 @@ Vue.component("modal", {
             title: "",
             description: "",
             username: "",
-            date: ""
+            date: "",
+            image_id: "",
+            user_name: "",
+            comment: "",
+            created_at: ""
         };
     },
     props: ["showmodal"],
@@ -24,12 +28,40 @@ Vue.component("modal", {
                 self.url = resp.data[0].url;
                 self.title = resp.data[0].title;
                 self.description = resp.data[0].description;
-                self.username = resp.data[0].username;
+                self.username = resp.data[0].user_name;
                 self.date = resp.data[0].created_at;
             })
             .catch(function(err) {
                 console.log("err in GET/", err);
             });
+    },
+    methods: {
+        clicked2: function() {
+            this.$emit("clicked2");
+            console.log('clicked2');
+            axios
+                .post('/comment/' + this.showmodal, {
+                    image_id : this.image_id,
+                    user_name : this.user_name,
+                    comment : this.comment
+                })
+                .then(results => {
+                    console.log("results clicked2", results);
+                })
+                .catch(function(err) {
+                    console.log("err in axios comment", err);
+                });
+
+            axios
+                .get("/comment/" + this.showmodal)
+                .then(function(resp) {
+                    this.user_name = resp.data[0].user_name;
+                    this.comment = resp.data[0].comment;
+                })
+                .catch(function(err) {
+                    console.log("err in axios/get comment get/", err);
+                });
+        }
     }
 });
 // });

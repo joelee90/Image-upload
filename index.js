@@ -6,6 +6,7 @@ const path = require('path');
 const db = require("./utils/db");
 const s3 = require('./s3');
 const config = require('./config');
+const bodyParser = require('body-parser');
 
 
 const diskStorage = multer.diskStorage({
@@ -51,7 +52,7 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
 app.get('/images', function(req, res) {
     db.getImages()
         .then(results => {
-            // console.log("results.rows:", results.rows);
+            // console.log("results.rows:", results.rows.id);
             res.json(results.rows);
         });
 });
@@ -60,12 +61,33 @@ app.get("/getData/:showmodal", (req, res) => {
     db.showImage(req.params.showmodal)
         .then(data => {
             res.json(data.rows);
-            console.log("data", data.rows);
+            // console.log("data", data.rows);
         })
         .catch(err => {
             console.log(err);
         });
+
 });
 
+app.post('/comment/:showmodal', (req, res) => {
+    // console.log("req.body.showmodal", req.params.showmodal);
+
+    db.addComments(req.params.showmodal, req.body.user_name, req.body.comment)
+        .then(val => {
+            // console.log("val", val);
+            res.json(val.rows[0]);
+        })
+        .catch(err => {
+            console.log("err in post comment",err);
+        });
+});
+
+app.get("/comment/:showmodal", (req,res) => {
+
+    db.showComments(req.params.showmodal)
+        .then(val => {
+            res.json(val.rows);
+        });
+});
 
 app.listen(8080, () => console.log('Vue is here!!!😜'));

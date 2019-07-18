@@ -22,3 +22,13 @@ exports.addImages = function addImages(
 exports.showImage = function showImage(id) {
     return db.query(`SELECT * FROM images WHERE id=$1`, [id]);
 };
+
+exports.addComments = function addComments(image_id, user_name, comment) {
+    return db.query(
+        `INSERT INTO comments (image_id, user_name, comment) VALUES ($1, $2, $3) RETURNING id`,
+        [image_id, user_name, comment]);
+};
+
+exports.showComments = function showComments(id) {
+    return db.query('SELECT * FROM comments WHERE id=$1 ORDER BY created_at DESC'), [id];
+};

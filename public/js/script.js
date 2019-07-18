@@ -7,7 +7,8 @@
             description: '',
             username: '',
             file: null,
-            showmodal: false
+            showmodal: false,
+            comment : []
         }, //closing data
         mounted: function() {
             let self = this;
@@ -49,8 +50,8 @@
             clicked: function(id) {
                 this.showmodal = true;
                 this.showmodal = id;
-                console.log('clicked');
-                console.log("this.showmodal ", this.showmodal);
+                // console.log('clicked');
+                // console.log("this.showmodal ", this.showmodal);
             }
         }
     });
