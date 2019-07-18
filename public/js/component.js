@@ -38,29 +38,29 @@ Vue.component("modal", {
     methods: {
         clicked2: function() {
             this.$emit("clicked2");
-            console.log('clicked2');
+            // console.log('clicked2');
             axios
-                .post('/comment/' + this.showmodal, {
+                .post("/comment/" + this.showmodal, {
                     image_id : this.image_id,
                     user_name : this.user_name,
                     comment : this.comment
                 })
                 .then(results => {
                     console.log("results clicked2", results);
+                    // this.comments.unshift(resp.data.rows[0]);
                 })
                 .catch(function(err) {
-                    console.log("err in axios comment", err);
+                    console.log("err in axios post/comment", err);
                 });
 
-            axios
-                .get("/comment/" + this.showmodal)
-                .then(function(resp) {
-                    this.user_name = resp.data[0].user_name;
-                    this.comment = resp.data[0].comment;
-                })
-                .catch(function(err) {
-                    console.log("err in axios/get comment get/", err);
-                });
+            // axios
+            //     .get("/comment/" + self.showmodal)
+            //     .then(function(resp) {
+            //         self.comments = resp.data;
+            //     })
+            //     .catch(function(err) {
+            //         console.log("err in axios get/comment", err);
+            //     });
         }
     }
 });

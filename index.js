@@ -69,25 +69,24 @@ app.get("/getData/:showmodal", (req, res) => {
 
 });
 
-app.post('/comment/:showmodal', (req, res) => {
-    // console.log("req.body.showmodal", req.params.showmodal);
-
+app.post("/comment/:showmodal", (req, res) => {
     db.addComments(req.params.showmodal, req.body.user_name, req.body.comment)
         .then(val => {
-            // console.log("val", val);
             res.json(val.rows[0]);
         })
         .catch(err => {
-            console.log("err in post comment",err);
+            console.log("err in app post /comment",err);
         });
 });
 
-app.get("/comment/:showmodal", (req,res) => {
-
-    db.showComments(req.params.showmodal)
-        .then(val => {
-            res.json(val.rows);
-        });
-});
+// app.get("/comment/:showmodal", (req,res) => {
+//     return db.showComments(req.params.showmodal)
+//         .then(data => {
+//             res.json(data.rows);
+//         })
+//         .catch(err => {
+//             console.log("err in app get /comment", err);
+//         });
+// });
 
 app.listen(8080, () => console.log('Vue is here!!!😜'));

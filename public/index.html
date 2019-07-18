@@ -49,10 +49,10 @@
                         <input v-model='comment' name='comment' placeholder="comment" type='text' />
                         <input v-model='user_name' name='user_name' placeholder="username" type='text' />
                         <button class="add-comment" @click.prevent.default="clicked2">Add Comment</button>
-                        <div class = "addcomment">
-                            <p>{{comment}}</p>
-                            <p>{{user_name}}</p>
+                        <div class = "addcomment" v-for ="comment in comment">
+                            <p>{{comment.comment}} {{comment.user_name}}</p>
                         </div>
+
                     </form>
                     <!-- <div class='comment2' v-if='comments.length > 0'>
                         <div class="commentbox" v-for ='comments in comments'>
