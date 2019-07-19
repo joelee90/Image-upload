@@ -27,6 +27,7 @@
                 <img :src='images.url' alt="image" @click="clicked(images.id)">
                 <div class='text'>{{images.title}}</div>
             </div>
+            <button @click.prevent.default='moreButton'>MORE</button>
         </div>
         <p v-else> No Images!!!</p>
         <div>

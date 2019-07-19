@@ -8,7 +8,7 @@ if(process.env.DATABASE_URL) {
 }
 
 exports.getImages = function getImages() {
-    return db.query('SELECT * FROM images ORDER BY created_at DESC LIMIT 30');
+    return db.query('SELECT * FROM images ORDER BY created_at DESC LIMIT 8');
 };
 
 exports.addImages = function addImages(
@@ -25,11 +25,24 @@ exports.showImage = function showImage(id) {
 
 exports.addComments = function addComments(image_id, user_name, comment) {
     return db.query(
-        `INSERT INTO comments (image_id, user_name, comment) VALUES ($1, $2, $3) RETURNING id`,
+        `INSERT INTO comments (image_id, user_name, comment) VALUES ($1, $2, $3) RETURNING *`,
         [image_id, user_name, comment]);
 };
 
 exports.showComments = function showComments(id) {
     return db.query(
         `SELECT * FROM comments WHERE image_id=$1 ORDER BY created_at DESC`, [id]);
+};
+
+exports.getMoreImages = function getMoreImages(lastId) {
+    db.query(
+        `SELECT * FROM images
+           WHERE id < $1
+           ORDER BY id DESC
+           LIMIT 8`,
+        [lastId]
+    )
+        .then(
+            ({rows}) => rows
+        );
 };

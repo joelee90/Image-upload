@@ -5,6 +5,7 @@ Vue.component("modal", {
     template: "#modal-template",
     data: function() {
         return {
+            comments: [],
             url: "",
             title: "",
             description: "",
@@ -13,8 +14,7 @@ Vue.component("modal", {
             image_id: "",
             user_name: "",
             comment: "",
-            created_at: "",
-            comments: []
+            created_at: ""
         };
     },
     props: ["showmodal"],
@@ -49,6 +49,7 @@ Vue.component("modal", {
     methods: {
         clicked2: function() {
             this.$emit("clicked2");
+            let self = this;
             // console.log('clicked2');
             axios
                 .post("/comment/" + this.showmodal, {
@@ -57,8 +58,8 @@ Vue.component("modal", {
                     comment : this.comment
                 })
                 .then(results => {
-                    console.log("results clicked2", results);
-                    this.comments.unshift(results.data);
+                    // console.log("results clicked2", results);
+                    self.comments.unshift(results.data[0]);
                 })
                 .catch(function(err) {
                     console.log("err in axios post/comment", err);

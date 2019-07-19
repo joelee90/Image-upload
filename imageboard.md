@@ -243,10 +243,36 @@ check if url is valid, close the modal where id doen't exist.
 
 ---
 
-- [ ] comments don't show immediately!
-- [ ] css
+- [x] comments don't show immediately!
 
+- [x] css
 
+  ----
+
+  total 28 pic / 8 on one page
+
+  More button —> ajax request —> next 8 images —> Add 8 images to the array of images already present —> images will pop underneath the ones already onscreen —> 
+
+  - [ ] ajax request — which chunk of images to retreive. 
+  - [ ] Use the number of images already in query as the OFFSET
+  - [ ] Use the id property of the last image on screen to determine where to start the next chunk.
+  - [ ] Compare the id of the last image in the list to that of the first image in the database. (reached the end, hid the 'more' button)
+
+  
+
+  - [ ] figure out the 'id' of the last image on screen.
+  - [ ] mycase: first image -7 or image -8 to show the next 8 images.
+  - [ ] in db.js - where to start the next 8.
+
+  image is an array. which shows all images on screen in my case 8 because I limited to that number.
+
+  more images will have less index than the last image.
+
+  image[image.length-1] last image on screen (lastId)
+
+- [ ] start:  id < image[image.length-1]
+
+- [ ] end: Limit 8
 
 
 

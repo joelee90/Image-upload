@@ -50,6 +50,16 @@
                 this.showmodal = id;
                 // console.log('clicked');
                 // console.log("this.showmodal ", this.showmodal);
+            },
+            moreButton: function() {
+                let self = this;
+                // let lastId = images[images.length -1];
+                axios
+                    .get('/more')
+                    .then(function(resp) {
+                        console.log("more resp", resp);
+                        self.images = resp.data;
+                    });
             }
         }
     });

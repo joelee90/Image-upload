@@ -18,9 +18,9 @@ h1 {
 }
 
 .main_2 {
-    grid-column-gap: 30px;
+    grid-column-gap: 70px;
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .block {
@@ -28,11 +28,11 @@ h1 {
     border-radius: 30px;
     padding: 5px;
     margin: 5px;
-    width: 30vw;
+    width: 20vw;
 }
 
 .block img {
-   width: 29vw;
+   width: 19vw;
    height: 20vw;
    object-fit: cover;
    border-radius: 30px;

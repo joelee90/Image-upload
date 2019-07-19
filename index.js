@@ -49,7 +49,7 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
     });
 });
 
-app.get('/images', function(req, res) {
+app.get("/images", function(req, res) {
     db.getImages()
         .then(results => {
             // console.log("results.rows:", results.rows.id);
@@ -72,7 +72,7 @@ app.get("/getData/:showmodal", (req, res) => {
 app.post("/comment/:showmodal", (req, res) => {
     db.addComments(req.params.showmodal, req.body.user_name, req.body.comment)
         .then(val => {
-            res.json(val.rows[0]);
+            res.json(val.rows);
         })
         .catch(err => {
             console.log("err in app post /comment",err);
@@ -86,6 +86,16 @@ app.get("/comment/:showmodal", (req,res) => {
         })
         .catch(err => {
             console.log("err in app get /comment", err);
+        });
+});
+
+app.get("/more", function(req, res) {
+    db.getMoreImages()
+        .then(results => {
+            res.json(results.rows);
+        })
+        .catch(err => {
+            console.log("err in app get",err);
         });
 });
 
