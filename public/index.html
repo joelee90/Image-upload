@@ -24,14 +24,14 @@
         </form>
         <div class='main_2' v-if='images.length > 0'>
             <div class="block" v-for ='images in images'>
-                <img :src='images.url' alt="image" @click="clicked(images.id)">
+                <a :href = "'#' + images.id"> <img :src='images.url' alt="image"></a>
                 <div class='text'>{{images.title}}</div>
             </div>
-            <button @click.prevent.default='moreButton'>MORE</button>
+            <button id="moreButton" @click='moreButton'>MORE</button>
         </div>
         <p v-else> No Images!!!</p>
         <div>
-           <modal v-if="showmodal" :showmodal="showmodal" @close="showmodal=false"></modal>
+           <modal v-if="imageId" :showmodal="imageId" @close="closeModal"></modal>
        </div>
     </div>
 

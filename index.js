@@ -89,14 +89,16 @@ app.get("/comment/:showmodal", (req,res) => {
         });
 });
 
-app.get("/more", function(req, res) {
-    db.getMoreImages()
-        .then(results => {
-            res.json(results.rows);
-        })
-        .catch(err => {
-            console.log("err in app get",err);
+app.get("/more/:id", (req, res) => {
+    console.log("req.params.id", req.params.id);
+    db.getMoreImages(req.params.id)
+        .then(data => {
+            console.log("data", data);
+            res.json(data);
         });
+    // .catch(err => {
+    //     console.log("err in app get",err);
+    // });
 });
 
 app.listen(8080, () => console.log('Vue is here!!!😜'));

@@ -34,15 +34,11 @@ exports.showComments = function showComments(id) {
         `SELECT * FROM comments WHERE image_id=$1 ORDER BY created_at DESC`, [id]);
 };
 
-exports.getMoreImages = function getMoreImages(lastId) {
-    db.query(
+exports.getMoreImages = function getMoreImages(id) {
+    return db.query(
         `SELECT * FROM images
            WHERE id < $1
            ORDER BY id DESC
            LIMIT 8`,
-        [lastId]
-    )
-        .then(
-            ({rows}) => rows
-        );
-};
+        [id]
+    );};

@@ -7,7 +7,8 @@
             description: '',
             username: '',
             file: null,
-            showmodal: false
+            showmodal: false,
+            imageId: location.hash.slice(1)
         }, //closing data
         mounted: function() {
             let self = this;
@@ -16,6 +17,10 @@
             }).catch(function(err) {
                 console.log('err in GET/images: ',err);
             });
+            addEventListener("hashchange", function() {
+                self.imageId = location.hash.slice(1);
+            });
+
         }, //close mounted
 
         methods: {
@@ -51,14 +56,25 @@
                 // console.log('clicked');
                 // console.log("this.showmodal ", this.showmodal);
             },
+            closeModal: function() {
+                this.imageId = null;
+                location.hash = "";
+                history.replaceState(null, null, " ");
+            },
             moreButton: function() {
-                let self = this;
-                // let lastId = images[images.length -1];
+                console.log("morebutton!!!");
+                // let self = this;
+                let lastId = this.images[this.images.length-1].id;
+                console.log("lastId", lastId);
+
                 axios
-                    .get('/more')
-                    .then(function(resp) {
-                        console.log("more resp", resp);
-                        self.images = resp.data;
+                    .get("/more/" + lastId)
+                    .then(res => {
+                        console.log("data from axios.images", res);
+                        this.images = this.images.concat(res.data.rows);
+                    })
+                    .catch(function(err) {
+                        console.log('err in get/upload:',err);
                     });
             }
         }
