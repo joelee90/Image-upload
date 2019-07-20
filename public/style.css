@@ -6,9 +6,19 @@
     padding: 5px;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+
 h1 {
     font-size: 70px;
+}
 
+.main {
+margin-top: 15%;
 }
 
 .subtitle {
@@ -97,7 +107,7 @@ h3 {
 }
 
 .pic img {
-    width: 60%;
+    width: 50%;
     height: auto;
 }
 
