@@ -2,14 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
     <title></title>
 </head>
 
 <header>
-    <h1>I <img src ='/pixel-heart.png' width = '100px;'/>  Pixels</h1>
-    <h3 class = 'subtitle'>Lastest Images</h3>
+    <h1>i LOVE pixels</h1>
+    <p class = 'subtitle'>Lastest Images</p>
 </header>
 
 <body>
@@ -27,7 +26,9 @@
                 <a :href = "'#' + images.id"> <img :src='images.url' alt="image"></a>
                 <div class='text'>{{images.title}}</div>
             </div>
-            <button id="moreButton" @click='moreButton'>MORE</button>
+
+            <button v-if="!hidden" id="moreButton" @click='moreButton'>MORE</button>
+
         </div>
         <p v-else> No Images!!!</p>
         <div>
@@ -38,14 +39,19 @@
     <script type="text/x-template" id='modal-template'>
         <transition name="modal">
             <div class="show-container">
-                <button class="modal-button" @click="$emit('close')">Close</button>
-                <h3>{{title}}</h3>
-                <img class="modal-image":src="url" alt="description" />
-                <p>{{description}}</p>
-                <h4>{{username}}{{date}}</h4>
+
+
+                <div class = "pic">
+                    <h3>{{title}}</h3>
+                    <img class="modal-image":src="url" alt="description" />
+                    <p>{{description}}</p>
+                    <h4>{{username}}{{date}}</h4>
+                </div>
+
 
                 <div class="comment">
                     <form>
+                        <button class="modal-button" @click="$emit('close')">Close</button>
                         <h2>Add a comment!</h2>
                         <input v-model='comment' name='comment' placeholder="comment" type='text' />
                         <input v-model='user_name' name='user_name' placeholder="username" type='text' />
@@ -56,13 +62,7 @@
                                 <p>{{comment.user_name}} on {{comment.created_at}}</p>
                             </div>
                         </div>
-
                     </form>
-                    <!-- <div class='comment2' v-if='comments.length > 0'>
-                        <div class="commentbox" v-for ='comments in comments'>
-                            <div class='text'>{{comments.comment}} </br> {{comments.username}}</div>
-                        </div>
-                    </div> -->
                 </div>
 
             </div>

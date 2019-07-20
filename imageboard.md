@@ -274,6 +274,14 @@ check if url is valid, close the modal where id doen't exist.
 
 - [ ] end: Limit 8
 
+  ---
+
+  - [ ] close button - take back to the top page
+  - [x] after  leaving comment —> text input field stays
+  - [ ] hid more button when reach bottom
+  - [x] hover when mouseover on image
+  - [x]  move more button in center bottom
+
 
 
 

@@ -1,46 +1,52 @@
 * {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Special Elite', cursive;
     box-sizing: border-box;
-    background: white;
-    color:  #F4A336;
+    background: #F5F5F5 ;
+    color:  #707070;
     padding: 5px;
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 70px;
+
 }
 
 .subtitle {
     font-size: 40px;
-}
-
-.main{
+    margin: 0;
 }
 
 .main_2 {
-    grid-column-gap: 70px;
+    /* grid-column-gap: 70px; */
+    grid-gap: 45px;
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .block {
-    border: 2px solid #F4A336;
-    border-radius: 30px;
+    border: 1px solid #909090;
+    border-radius: 80px 80px 10px 10px;
     padding: 5px;
     margin: 5px;
-    width: 20vw;
+    width: 300px;
+    text-align: center;
 }
 
 .block img {
-   width: 19vw;
+   width: 280px;
    height: 20vw;
    object-fit: cover;
-   border-radius: 30px;
+   border-radius: 80px;
+   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.44);
+}
+
+.block img:hover {
+    box-shadow: 0 20px 40px rgba(219,195,219,1), 0 20px 30px rgba(0, 0, 0, 0.44);
 }
 
 .text {
     font-size: 20px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 70px;
     width: 20;
     background: none;
@@ -61,19 +67,39 @@ h3 {
     font-size: 20px;
 }
 
+/* .pic {
+    width: 100%;
+} */
+
 .show-container {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
   position: fixed;
   z-index: 9998;
-  top: 0%;
-  left: 15%;
-  width: 70%;
-  height: 100vh;
-  background-color: white;
+  top: 5%;
+  left: 10%;
+  width: 80%;
+  height: 90%;
+  background-color: #F5F5F5;
   transition: opacity .3s ease;
   text-align: center;
   opacity: 0.98;
+  border: 0.5px solid #909090;
+  border-radius: 10px;
 }
 
+.moreButton {
+    width: 300px;
+}
+
+.moreButton:hover {
+    box-shadow: 0 20px 40px rgba(219,195,219,1), 0 20px 30px rgba(0, 0, 0, 0.44);
+}
+
+.pic img {
+    width: 60%;
+    height: auto;
+}
 
 .modal-enter {
     opacity: 0;
@@ -97,14 +123,13 @@ h3 {
     height: 40%;
 }
 
-.addcomment {
+.comment {
     overflow: scroll;
 }
 
 .comment-section {
-    border: 1px solid #F4A336;
+    border: 0.5px solid #F4A336;
     font-size: 15px;
-    height: 80px;
 }
 /* .grid-container {
     display: flex;

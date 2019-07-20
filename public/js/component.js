@@ -1,6 +1,3 @@
-// // component js
-
-// (function () {
 Vue.component("modal", {
     template: "#modal-template",
     data: function() {
@@ -31,6 +28,7 @@ Vue.component("modal", {
                 self.description = resp.data[0].description;
                 self.username = resp.data[0].user_name;
                 self.date = resp.data[0].created_at;
+
             })
             .catch(function(err) {
                 console.log("err in GET/", err);
@@ -60,6 +58,8 @@ Vue.component("modal", {
                 .then(results => {
                     // console.log("results clicked2", results);
                     self.comments.unshift(results.data[0]);
+                    self.comment = "";
+                    self.user_name = "";
                 })
                 .catch(function(err) {
                     console.log("err in axios post/comment", err);
@@ -67,28 +67,3 @@ Vue.component("modal", {
         }
     }
 });
-// });
-
-// (function () {
-//     Vue.component('love-component', {
-//         // template: '<h2>I ♥️ components</h2>',
-//         template: '#love-template',
-//         data: function() {
-//             return {
-//                 something: 'vueeeeee'
-//             };
-//         },
-//         props: ["whatever"],
-//         mounted: function () {
-//             console.log('mounted!');
-//         },
-//         methods: {
-//             clicked: function() {
-//                 this.something = this.whatever;
-//             },
-//             clicked2: function() {
-//                 this.$emit('change', 'disco duck');
-//             }
-//         }
-//     });
-// })();

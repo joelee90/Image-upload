@@ -8,7 +8,8 @@
             username: '',
             file: null,
             showmodal: false,
-            imageId: location.hash.slice(1)
+            imageId: location.hash.slice(1),
+            hidden: false
         }, //closing data
         mounted: function() {
             let self = this;
@@ -39,6 +40,10 @@
                     .then(function(resp) {
                         console.log("resp:", resp);
                         self.images.unshift(resp.data);
+                        self.title = "";
+                        self.description = "";
+                        self.username = "";
+                        self.file ="";
                         // console.log('resp in POST/upload:',resp);
                     })
                     .catch(function(err) {
@@ -70,7 +75,9 @@
                 axios
                     .get("/more/" + lastId)
                     .then(res => {
-                        console.log("data from axios.images", res);
+                        if(res.data.rows.length < 8) {
+                            this.hidden = true;
+                        }
                         this.images = this.images.concat(res.data.rows);
                     })
                     .catch(function(err) {

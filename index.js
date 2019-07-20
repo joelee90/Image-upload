@@ -93,7 +93,7 @@ app.get("/more/:id", (req, res) => {
     console.log("req.params.id", req.params.id);
     db.getMoreImages(req.params.id)
         .then(data => {
-            console.log("data", data);
+            // console.log("data", data);
             res.json(data);
         });
     // .catch(err => {
